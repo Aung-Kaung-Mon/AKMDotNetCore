@@ -17,6 +17,7 @@ connection.Open();
 
 string query = "select * from dbo.Tbl_Blogs";
 SqlCommand command = new SqlCommand(query, connection);
+//
 SqlDataAdapter adapter = new SqlDataAdapter(command);
 DataTable dataTable = new DataTable();
 adapter.Fill(dataTable);
