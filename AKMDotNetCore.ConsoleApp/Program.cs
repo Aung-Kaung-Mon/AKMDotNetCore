@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 
 Console.WriteLine("Hello, World!");
 Console.WriteLine("");
-//Console.ReadKey();
+Console.ReadKey();
 
 SqlConnectionStringBuilder connectionStringBuilder = new SqlConnectionStringBuilder();
 connectionStringBuilder.DataSource = "LAPTOP-HA19D87N";
