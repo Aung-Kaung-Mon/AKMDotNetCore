@@ -29,6 +29,6 @@ foreach (DataRow row in dataTable.Rows)
     Console.WriteLine("BlogTitle => " + row["BlogTitle"]);
     Console.WriteLine("BlogArthur => " + row["BlogArthur"]);
     Console.WriteLine("BlogContent => " + row["BlogContent"]);
-    Console.WriteLine("_____________________________");
+    Console.WriteLine("____________________________");
     Console.WriteLine("");
 }
