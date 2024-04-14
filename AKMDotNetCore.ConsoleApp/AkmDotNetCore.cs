@@ -119,6 +119,35 @@ namespace AKMDotNetCore.ConsoleApp
             Console.WriteLine(result > 0 ? "successfully deleted" : "some error occurred");
         }
 
+        public void Edit(int id)
+        {
+            SqlConnection connection = new SqlConnection(_connectionStringBuilder.ConnectionString);
+            connection.Open(); 
+
+            string query = "Select * from dbo.Tbl_Blogs Where BlogID = @BlogID";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@BlogID", id);
+
+            SqlDataAdapter adapter = new SqlDataAdapter(command);
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+
+            if(dt.Rows.Count == 0)
+            {
+                Console.WriteLine("No Data Found");
+                return;
+            }
+
+            DataRow row = dt.Rows[0];
+
+            Console.WriteLine("BlogId => " + row["BlogID"]);
+            Console.WriteLine("BlogTitle => " + row["BlogTitle"]);
+            Console.WriteLine("BlogArthur => " + row["BlogArthur"]);
+            Console.WriteLine("BlogContent => " + row["BlogContent"]);
+
+
+        }
+
 
     }
 }
