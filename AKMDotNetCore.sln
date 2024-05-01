@@ -3,10 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.34707.107
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AKMDotNetCore.ConsoleApp", "AKMDotNetCore.ConsoleApp\AKMDotNetCore.ConsoleApp.csproj", "{064DC02C-FB02-4707-A8CF-1EE7AED5C9E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AKMDotNetCore.ConsoleApp", "AKMDotNetCore.ConsoleApp\AKMDotNetCore.ConsoleApp.csproj", "{064DC02C-FB02-4707-A8CF-1EE7AED5C9E0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{CB66282B-571A-417F-881A-B9BEF438BE1E}"
 	ProjectSection(SolutionItems) = preProject
+		AKMDotNetCore.sql = AKMDotNetCore.sql
 		README.md = README.md
 	EndProjectSection
 EndProject

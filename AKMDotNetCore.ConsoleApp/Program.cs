@@ -3,12 +3,15 @@
 
 using AKMDotNetCore.ConsoleApp;
 
-AkmDotNetCore aKMDotNetCore = new AkmDotNetCore();
+//AkmDotNetCore aKMDotNetCore = new AkmDotNetCore();
 
 //aKMDotNetCore.Retrieve();
 //aKMDotNetCore.Create("jj", "nn", "kk");
 //aKMDotNetCore.Update(13, "title", "author name", "content");
 //aKMDotNetCore.Delete(15);
-aKMDotNetCore.Edit(13);
+//aKMDotNetCore.Edit(13);
+
+DapperExample dapperExample = new DapperExample();
+dapperExample.Run();
 
 Console.ReadKey();
