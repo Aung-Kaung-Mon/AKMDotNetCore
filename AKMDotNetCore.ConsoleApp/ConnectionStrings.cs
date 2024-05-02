@@ -19,4 +19,4 @@ public static class ConnectionStrings
         
     };
 }
-//Scaffold-DbContext "Server=LAPTOP-HA19D87N;Database=AKMDotNetCore;UserID=sa;Password=sasa@123;TrustServerCertificate=True;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Context AKMDotNetCoreContext
+//Scaffold-DbContext "Server=LAPTOP-HA19D87N;Database=AKMDotNetCore;User ID=sa;Password=sa@123;TrustServerCertificate=True;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Context AKMDotNetCoreContext
