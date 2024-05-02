@@ -14,6 +14,8 @@ public static class ConnectionStrings
         DataSource = "LAPTOP-HA19D87N",
         InitialCatalog = "AKMDotNetCore",
         UserID = "sa",
-        Password = "sa@123"
+        Password = "sa@123",
+        TrustServerCertificate = true
+        
     };
 }
