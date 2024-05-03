@@ -4,8 +4,9 @@ using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
+using AKMDotNetCore.ConsoleApp.Dtos;
 
-namespace AKMDotNetCore.ConsoleApp;
+namespace AKMDotNetCore.ConsoleApp.EFCoreExamples;
 
 internal class EFCoreExample
 {
@@ -38,7 +39,7 @@ internal class EFCoreExample
     private void Edit(int id)
     {
         var blog = db.Blogs.FirstOrDefault(x => x.BlogId == id);
-        if(blog is null)
+        if (blog is null)
         {
             Console.WriteLine("Data not found");
             return;
@@ -90,7 +91,7 @@ internal class EFCoreExample
 
     private void Delete(int id)
     {
-        var item = db.Blogs.FirstOrDefault(x => x.BlogId ==id );
+        var item = db.Blogs.FirstOrDefault(x => x.BlogId == id);
 
         if (item is null)
         {

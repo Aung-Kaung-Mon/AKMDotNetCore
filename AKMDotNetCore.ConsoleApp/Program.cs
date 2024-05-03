@@ -1,7 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 
-using AKMDotNetCore.ConsoleApp;
+using AKMDotNetCore.ConsoleApp.EFCoreExamples;
 
 //AkmDotNetCore aKMDotNetCore = new AkmDotNetCore();
 

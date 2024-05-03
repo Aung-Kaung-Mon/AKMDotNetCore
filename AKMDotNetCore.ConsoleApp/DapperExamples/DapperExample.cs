@@ -1,4 +1,6 @@
-﻿using Dapper;
+﻿using AKMDotNetCore.ConsoleApp.Dtos;
+using AKMDotNetCore.ConsoleApp.Services;
+using Dapper;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -7,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AKMDotNetCore.ConsoleApp;
+namespace AKMDotNetCore.ConsoleApp.DapperExamples;
 
 internal class DapperExample
 {
@@ -34,13 +36,13 @@ internal class DapperExample
             Console.WriteLine("-----------------------");
             Console.WriteLine("");
 
-        }            
+        }
     }
 
     private void Edit(int id)
     {
         using IDbConnection dbConnection = new SqlConnection(ConnectionStrings.stringBuilder.ConnectionString);
-        var blog = dbConnection.Query<BlogDto>("select * from Tbl_Blogs where BlogId = @BlogId" , new BlogDto() { BlogId = id}).FirstOrDefault();
+        var blog = dbConnection.Query<BlogDto>("select * from Tbl_Blogs where BlogId = @BlogId", new BlogDto() { BlogId = id }).FirstOrDefault();
 
         if (blog is null)
         {
@@ -53,7 +55,7 @@ internal class DapperExample
         Console.WriteLine(blog.BlogContent);
     }
 
-    private void Create( string title , string author , string content)
+    private void Create(string title, string author, string content)
     {
 
         string query = @"INSERT INTO [dbo].[Tbl_Blogs]
@@ -72,12 +74,12 @@ internal class DapperExample
 
 
         using IDbConnection dbConnection = new SqlConnection(ConnectionStrings.stringBuilder.ConnectionString);
-        int result = dbConnection.Execute(query , param);
+        int result = dbConnection.Execute(query, param);
 
         Console.WriteLine(result > 0 ? "Created successfully" : "creation failed");
     }
 
-    private void Update( int id , string title , string author , string content)
+    private void Update(int id, string title, string author, string content)
     {
 
         string query = @"UPDATE [dbo].[Tbl_Blogs]
@@ -108,7 +110,7 @@ internal class DapperExample
         var param = new BlogDto()
         {
             BlogId = id
-        };      
+        };
 
         using IDbConnection dbConnection = new SqlConnection(ConnectionStrings.stringBuilder.ConnectionString);
         int result = dbConnection.Execute(query, param);

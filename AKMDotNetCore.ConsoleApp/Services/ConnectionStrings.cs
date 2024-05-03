@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AKMDotNetCore.ConsoleApp;
+namespace AKMDotNetCore.ConsoleApp.Services;
 
 public static class ConnectionStrings
 {
@@ -16,7 +16,7 @@ public static class ConnectionStrings
         UserID = "sa",
         Password = "sa@123",
         TrustServerCertificate = true
-        
+
     };
 }
 //Scaffold-DbContext "Server=LAPTOP-HA19D87N;Database=AKMDotNetCore;User ID=sa;Password=sa@123;TrustServerCertificate=True;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Context AKMDotNetCoreContext

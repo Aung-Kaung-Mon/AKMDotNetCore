@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AKMDotNetCore.ConsoleApp
+namespace AKMDotNetCore.ConsoleApp.AdoDotNetExamples
 {
-    internal class AkmDotNetCore
+    internal class AdoDotNetExample
     {
 
         private readonly SqlConnectionStringBuilder _connectionStringBuilder = new SqlConnectionStringBuilder()
@@ -18,10 +18,10 @@ namespace AKMDotNetCore.ConsoleApp
             UserID = "sa",
             Password = "sa@123"
         };
-   
+
         public void Retrieve()
         {
-       
+
             SqlConnection connection = new SqlConnection(_connectionStringBuilder.ConnectionString);
             connection.Open();
 
@@ -45,7 +45,7 @@ namespace AKMDotNetCore.ConsoleApp
             }
         }
 
-        public void Create(string title , string author , string content)
+        public void Create(string title, string author, string content)
         {
             SqlConnection connection = new SqlConnection(_connectionStringBuilder.ConnectionString);
             connection.Open();
@@ -65,7 +65,7 @@ namespace AKMDotNetCore.ConsoleApp
            (@BlogTitle, @BlogAuthor, @BlogContent)";
 
 
-            SqlCommand command = new SqlCommand(query , connection);
+            SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@BlogTitle", title);
             command.Parameters.AddWithValue("@BlogAuthor", author);
             command.Parameters.AddWithValue("@BlogContent", content);
@@ -76,9 +76,9 @@ namespace AKMDotNetCore.ConsoleApp
 
             Console.WriteLine(result > 0 ? "Created successfully" : "creation failed");
 
-        } 
+        }
 
-        public void Update(int id , string title , string author , string content)
+        public void Update(int id, string title, string author, string content)
         {
             SqlConnection connection = new SqlConnection(_connectionStringBuilder.ConnectionString);
             connection.Open();
@@ -94,7 +94,7 @@ namespace AKMDotNetCore.ConsoleApp
             command.Parameters.AddWithValue("@BlogAuthor", author);
             command.Parameters.AddWithValue("@BlogContent", content);
             command.Parameters.AddWithValue("@BlogID", id);
-            
+
             int result = command.ExecuteNonQuery();
 
             connection.Close();
@@ -111,7 +111,7 @@ namespace AKMDotNetCore.ConsoleApp
                          WHERE BlogID = @BlogID";
 
             SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@BlogID" , id);
+            command.Parameters.AddWithValue("@BlogID", id);
             int result = command.ExecuteNonQuery();
 
             connection.Close();
@@ -122,7 +122,7 @@ namespace AKMDotNetCore.ConsoleApp
         public void Edit(int id)
         {
             SqlConnection connection = new SqlConnection(_connectionStringBuilder.ConnectionString);
-            connection.Open(); 
+            connection.Open();
 
             string query = "Select * from dbo.Tbl_Blogs Where BlogID = @BlogID";
             SqlCommand command = new SqlCommand(query, connection);
@@ -132,7 +132,7 @@ namespace AKMDotNetCore.ConsoleApp
             DataTable dt = new DataTable();
             adapter.Fill(dt);
 
-            if(dt.Rows.Count == 0)
+            if (dt.Rows.Count == 0)
             {
                 Console.WriteLine("No Data Found");
                 return;
