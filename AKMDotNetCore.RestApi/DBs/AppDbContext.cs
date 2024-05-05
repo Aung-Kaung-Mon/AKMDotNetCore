@@ -1,6 +1,4 @@
-﻿
-using AKMDotNetCore.ConsoleApp.Services;
-using AKMDotNetCore.RestApi.Models;
+﻿using AKMDotNetCore.RestApi.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
