@@ -38,8 +38,25 @@ public class MyanmarProverbsController : ControllerBase
         return Ok(list);
     }
 
-    [HttpGet("{titleId}/{proverbId}")]
+    [HttpGet("new/{title}")]
 
+    public async Task<IActionResult> ReadProvebsNew(string title)
+    {
+        var model = await GetDataAsync();
+        var item = model.Tbl_MMProverbsTitle.FirstOrDefault(x => x.TitleName == title);
+        if (item is null) return NotFound("no data found");
+
+        var titleId = item.TitleId;
+        List<Tbl_Mmproverbs_New> list = model.Tbl_MMProverbs.Where(x => x.TitleId == titleId).Select(x => new Tbl_Mmproverbs_New { 
+            TitleId = x.TitleId ,
+            ProverbId = x.ProverbId , 
+            ProverbName = x.ProverbName}).ToList();
+
+        return Ok(list);
+    }
+
+    [HttpGet("{titleId}/{proverbId}")]
+         
     public async Task<IActionResult> ReadProverb(int titleId , int proverbId)
     {
         var model = await GetDataAsync();
@@ -71,4 +88,11 @@ public class Tbl_Mmproverbs
     public int ProverbId { get; set; }
     public string ProverbName { get; set; }
     public string ProverbDesp { get; set; }
+}
+
+public class Tbl_Mmproverbs_New
+{
+    public int TitleId { get; set; }
+    public int ProverbId { get; set; }
+    public string ProverbName { get; set; }
 }
