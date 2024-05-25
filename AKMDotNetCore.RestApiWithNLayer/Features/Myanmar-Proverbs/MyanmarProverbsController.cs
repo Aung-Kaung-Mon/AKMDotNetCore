@@ -40,7 +40,7 @@ public class MyanmarProverbsController : ControllerBase
 
     [HttpGet("new/{title}")]
 
-    public async Task<IActionResult> ReadProvebsNew(string title)
+    public async Task<IActionResult> ReadProverbsNew(string title)
     {
         var model = await GetDataAsync();
         var item = model.Tbl_MMProverbsTitle.FirstOrDefault(x => x.TitleName == title);
